@@ -11,3 +11,5 @@ Nous avons les objectifs suivants:
 - Tester la précision d'un GPS en mode RTK 
 - Effectuer les calculs RTK en mode sans écran
 - Remonter les informations obtenus dans une IHM
+
+Nous avons à disposition un NEO-7M-0-000 avec sa datasheet: https://www.snapeda.com/parts/NEO-7M-0-000/U-Blox%20America/datasheet/ 

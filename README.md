@@ -11,9 +11,10 @@ Nous avons les objectifs suivants:
 - Effectuer les calculs RTK en mode sans écran
 - Remonter les informations obtenus dans une IHM
 
-Avant cela, nous allons étudier le GPS RTK
+              Avant cela, nous allons étudier le GPS RTK:
 
-Qu'est-ce que le système GPS
+Qu'est-ce que le système GPS?
+Un
 
 
 Fonctionnement du GPS

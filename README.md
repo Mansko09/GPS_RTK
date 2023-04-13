@@ -21,7 +21,7 @@ Le récepteur GPS est un boîtier (ce qu’on achète dans le commerce) composé
 
 
   Fonctionnement du GPS:
-- déterminer la distance L entre le satellite et le récepteur
+- déterminer la distance L entre le satellite et le récepteur:
 Tous les satellites sont équipés d’une horloge atomique très précise
 Chaque satellite envoie un signal (un pulse) au boitier GPS contenant des informations sur le nom du satellite, la position du satellite dans l’espace, sur le temps d’envoi du signal tdépart .
 Le récepteur enregistre le temps tarrivé où le signal est reçu.

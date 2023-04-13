@@ -35,7 +35,7 @@ Avec l’utilisation d’un deuxième satellite, la position se réduit à un ce
 Enfin, l’intersection avec un troisième satellite nous permet de réduire les possibilités de positions à 2.
 En utilisant la surface de la terre, on élimine la solution improbable (qui se situerait dans l’espace).
 
-  Limites du GPS
+  Limites du GPS:
 Le récepteur GPS doit capter les signaux provenant de satellites, il aura donc des problèmes pour les capter lorsque le récepteur ne voit pas le ciel: Bâtiments, forêts, et montagnes 
  
   Que sont les systèmes RTK? 

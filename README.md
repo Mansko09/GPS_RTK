@@ -1,3 +1,4 @@
+
 # GPS_RTK
 Projet d'électronique réalisé en groupe par Léo GLORIA, Justine XIANG et Mantoulaye MBENGUE
 Par construction, le GPS n'est pas assez précis pour la navigation autonome (~5m). 
@@ -11,20 +12,37 @@ Nous avons les objectifs suivants:
 - Effectuer les calculs RTK en mode sans écran
 - Remonter les informations obtenus dans une IHM
 
-              Avant cela, nous allons étudier le GPS RTK:
+Avant cela, nous allons étudier le GPS RTK:
 
-Qu'est-ce que le système GPS?
-Un
+  Qu'est-ce que le système GPS?
+Un GPS est composé de satellites et d’un récepteur.
+Chaque satellite est à une distance d’environ 20 km de la terre. Ils sont environ une trentaine qui tournent autour de la terre (pas dans le même sens), de telle sorte qu’à tout moment où l’on souhaite déterminer une position, on a à disposition entre 5 et 10 satellites.
+Le récepteur GPS est un boîtier (ce qu’on achète dans le commerce) composé d’une antenne (permet d’avoir une bonne qualité du signal), de composants électroniques (ajoutent du bruit) et d’une batterie (autonomie).
 
 
-Fonctionnement du GPS
+  Fonctionnement du GPS:
+- déterminer la distance L entre le satellite et le récepteur
+Tous les satellites sont équipés d’une horloge atomique très précise
+Chaque satellite envoie un signal (un pulse) au boitier GPS contenant des informations sur le nom du satellite, la position du satellite dans l’espace, sur le temps d’envoi du signal tdépart .
+Le récepteur enregistre le temps tarrivé où le signal est reçu.
+On a L=(tarrivé-tdépart)*c,  avec c la célérité de la lumière (les ondes radio se déplacent à la vitesse de la lumière)
+- Localiser le récepteur:
+On connaît la distance avec les trois satellites: L1,L2 et L3
+Prenons l’exemple de vouloir localiser une personne:
+La technique utilisée par le GPS est la triangulation 3D: on a besoin de trois satellites.
+En effet, dans le monde tridimensionnel un premier satellite sait que la personne se situe sur une sphère de rayon  (distance satellite-personne).
+Avec l’utilisation d’un deuxième satellite, la position se réduit à un cercle (intersection de deux sphères). 
+Enfin, l’intersection avec un troisième satellite nous permet de réduire les possibilités de positions à 2.
+En utilisant la surface de la terre, on élimine la solution improbable (qui se situerait dans l’espace).
 
-
-Limites du GPS
-Bâtiments, fôrets, les montagnes qui bloquent les signaux
+  Limites du GPS
+Le récepteur GPS doit capter les signaux provenant de satellites, il aura donc des problèmes pour les capter lorsque le récepteur ne voit pas le ciel: Bâtiments, forêts, et montagnes 
  
-Que sont les systèmes RTK? (Real Time Kinematic)
+  Que sont les systèmes RTK? 
+Définition RTK: Real Time Kinematic: une technique précise de positionnement par satellite qui permet d’obtenir des résultats avec une précision au centimètre près, ce qui en fait un outil efficace pour les géomètres, dans le monde entier.
+
 En pratique, les systèmes RTK utilisent un récepteur fixe (station de base dont la position est connue précisément) et un certain nombre de récepteurs mobiles. La station de base compare la position calculée à partir du signal GPS et la position réelle, puis réémet les corrections à apporter vers les récepteurs mobiles
 
 
-Etude du GPS NEO
+Etude du GPS  NEO-7M-0-000 
+Logiciels: Ublox et RTK lib 

@@ -1,0 +1,103 @@
+/* USER CODE BEGIN 0 */
+#define BOUTON_PIN GPIO_PIN_13
+#define BOUTON_PORT GPIOC
+#define LED1_PIN GPIO_PIN_0
+#define LED2_PIN GPIO_PIN_1
+#define LED1_PORT GPIOB
+#define LED2_PORT GPIOE
+#define LED3_PIN GPIO_PIN_14
+#define LED3_PORT GPIOB
+
+typedef enum{
+	CONFIGURATION_ALL, //les trois leds allumées
+	CONFIGURATION_LED1, //led1 allumée
+	CONFIGURATION_LED2, //led2 allumée
+	CONFIGURATION_LED3,//led3 allumée
+	MAX_NUMBER_OF_CONFIGURATION
+}LEDConfiguration;
+/* USER CODE END 0 */
+
+
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+	uint8_t toSend[20]=" SET OUT1 VS IN \n\r";
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART3_UART_Init();
+  MX_USB_OTG_HS_USB_Init();
+  /* USER CODE BEGIN 2 */
+
+LEDConfiguration STATE = CONFIGURATION_ALL;
+int button_state=0;
+int old_button_state=0;
+
+HAL_UART_Transmit(&huart3,(const uint8_t *)"Bonjour\n\r",8,-1);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+	  button_state=HAL_GPIO_ReadPin(BOUTON_PORT,BOUTON_PIN);
+	  if (button_state==1 && old_button_state==0){
+		  STATE=(STATE+1)%MAX_NUMBER_OF_CONFIGURATION;
+		  toSend[0]=0;    
+		  toSend[15]=STATE+1+'0';
+		  HAL_UART_Transmit(&huart3,toSend,18,-1);  //Visualisation communication console - STM32
+	  }
+	  old_button_state=button_state;
+
+
+		  switch(STATE){
+		  case CONFIGURATION_ALL:
+			  HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_SET);
+			  HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_SET);
+			  HAL_GPIO_WritePin(LED3_PORT,LED3_PIN,GPIO_PIN_SET);
+		      break;
+		  case CONFIGURATION_LED1:
+			  HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_SET);
+			  HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_RESET);
+			  HAL_GPIO_WritePin(LED3_PORT,LED3_PIN,GPIO_PIN_RESET);
+			  break;
+		  case CONFIGURATION_LED2:
+		  	  HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_RESET);
+		  	  HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_SET);
+			  HAL_GPIO_WritePin(LED3_PORT,LED3_PIN,GPIO_PIN_RESET);
+		  	  break;
+		  case CONFIGURATION_LED3:
+		  	  HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_RESET);
+		  	  HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_RESET);
+			  HAL_GPIO_WritePin(LED3_PORT,LED3_PIN,GPIO_PIN_SET);
+		  	  break;
+		  default :
+			  break;
+		  }
+
+    /* USER CODE END WHILE */
+
+
+
+
+
+
+
+

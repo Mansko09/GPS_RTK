@@ -64,7 +64,7 @@ code qui contrôlera les interactions avec les boutons, la capture d'image à pa
 
 4. Assemblage des composants : Une fois que le programme pour allumer les LEDs est vérifié, on procède à l'assemblage des composants, y compris la caméra, l'écran et les boutons, conformément au schéma et au design prévus. On vérifie le soudage de chaque composant et les connexions.
 
-5. Conception du boîtier sur Onshape et impression 3D
+5. Conception du boîtier sur Onshape et impression 3D: mesurer le boîtier avec une règle précise au milimètre
 
 6. Test et débogage : tests approfondis pour s'assurer que le boîtier fonctionne comme prévu.
 

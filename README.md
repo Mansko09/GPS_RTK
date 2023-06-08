@@ -60,11 +60,13 @@ créer un boîtier avec 4 boutons, qui permettra selon le bouton sur lequel on a
 2. Programmation de la carte Nucleo H7A3 : Utilisation d'IDE pour écrire le 
 code qui contrôlera les interactions avec les boutons, la capture d'image à partir de la caméra et l'affichage des différentes configurations sur l'écran. 
 
-3. Assemblage des composants : Une fois que le programme pour allumer les LEDs est vérifié, on procède à l'assemblage des composants, y compris la caméra, l'écran et les boutons, conformément au schéma et au design prévus. On vérifie le soudage de chaque composant et les connexions.
+3. Programmation des boutons poussoirs: https://forum.digikey.com/t/controlling-neopixels-with-stm32/20527
 
-4. Conception du boîtier sur Onshape et impression 3D
+4. Assemblage des composants : Une fois que le programme pour allumer les LEDs est vérifié, on procède à l'assemblage des composants, y compris la caméra, l'écran et les boutons, conformément au schéma et au design prévus. On vérifie le soudage de chaque composant et les connexions.
 
-5. Test et débogage : tests approfondis pour s'assurer que le boîtier fonctionne comme prévu.
+5. Conception du boîtier sur Onshape et impression 3D
+
+6. Test et débogage : tests approfondis pour s'assurer que le boîtier fonctionne comme prévu.
 
 
 
